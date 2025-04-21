@@ -74,15 +74,6 @@
             z-index: 1;
         }
 
-        /* h1::after {
-            content: '🐾';
-            font-size: 2rem;
-            position: absolute;
-            right: -70px;
-            top: 10px;
-            animation: paw-bounce 3s infinite;
-        } */
-
         .container {
             max-width: 100%;
             margin: 0 auto;
@@ -371,6 +362,96 @@
             border: 0;
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Game Section */
+        .game-section {
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(135deg, #fffaf0, #ffe4e1);
+            border-radius: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+        }
+
+        .game-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/fur.png');
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        .game-section h2 {
+            font-size: 2.8rem;
+            color: #ff6200;
+            text-shadow: -2px 0 #fff, 0 2px #fff, 2px 0 #fff, 0 -2px #fff;
+            margin-bottom: 20px;
+        }
+
+        .game-embed {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin: 30px 0;
+            cursor: pointer;
+        }
+
+        .game-embed iframe {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .beta-note {
+            font-size: 1.2rem;
+            color: #ff6200;
+            text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+            margin-top: 10px;
+        }
+
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-overlay.active {
+            display: flex;
+        }
+
+        .fullscreen-iframe {
+            width: 90%;
+            height: 90%;
+            border: 0;
+            border-radius: 15px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+            text-shadow: -1px 0 #ff6200, 0 1px #ff6200, 1px 0 #ff6200, 0 -1px #ff6200;
         }
 
         /* Roadmap Section */
@@ -668,7 +749,6 @@
         }
 
         @keyframes bounce {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -690,7 +770,6 @@
         }
 
         @keyframes paw-bounce {
-
             0%,
             100% {
                 transform: translateY(0);
@@ -702,278 +781,276 @@
         }
 
         /* Responsive Design */
-       /* Enhanced Responsive Design for Mobile */
-@media (max-width: 768px) {
-    /* General adjustments */
-    body {
-        font-size: 16px;
-    }
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
 
-    .container {
-        padding: 20px;
-    }
+            .container {
+                padding: 20px;
+            }
 
-    /* Header adjustments */
-    header {
-        padding: 30px 15px;
-    }
+            header {
+                padding: 30px 15px;
+            }
 
-    h1 {
-        font-size: 2.2rem;
-        letter-spacing: 3px;
-    }
+            h1 {
+                font-size: 2.2rem;
+                letter-spacing: 3px;
+            }
 
-    h1::after {
-        font-size: 1.5rem;
-        right: -40px;
-    }
+            h1::after {
+                font-size: 1.5rem;
+                right: -40px;
+            }
 
-    .logo {
-        width: 140px;
-    }
+            .logo {
+                width: 140px;
+            }
 
-    /* Info box adjustments */
-    .info-box {
-        padding: 20px;
-        margin: 20px 0;
-    }
+            .info-box {
+                padding: 20px;
+                margin: 20px 0;
+            }
 
-    .info-box p {
-        font-size: 1.2rem;
-    }
+            .info-box p {
+                font-size: 1.2rem;
+            }
 
-    .ca {
-        font-size: 1rem;
-        padding: 10px 20px;
-        /* Truncation styles */
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%; /* Ensure it doesn't exceed container */
-        display: inline-block; /* Already set, but reinforcing */
-    }
+            .ca {
+                font-size: 1rem;
+                padding: 10px 20px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+                display: inline-block;
+            }
 
-    /* Social links */
-    .social-links {
-        margin: 20px 0;
-    }
+            .social-links {
+                margin: 20px 0;
+            }
 
-    .social-link {
-        margin: 10px;
-        padding: 8px 20px;
-        font-size: 1.1rem;
-    }
+            .social-link {
+                margin: 10px;
+                padding: 8px 20px;
+                font-size: 1.1rem;
+            }
 
-    .social-link.x-link::after {
-        font-size: 1rem;
-        right: -15px;
-    }
+            .social-link.x-link::after {
+                font-size: 1rem;
+                right: -15px;
+            }
 
-    /* Section headings */
-    .x-posts h2,
-    .cto-section h2,
-    .dex-section h2,
-    .roadmap h2,
-    .tokenomics h2,
-    .faq h2 {
-        font-size: 1.8rem;
-    }
+            .x-posts h2,
+            .cto-section h2,
+            .dex-section h2,
+            .game-section h2,
+            .roadmap h2,
+            .tokenomics h2,
+            .faq h2 {
+                font-size: 1.8rem;
+            }
 
-    /* X Posts Section */
-    .x-posts {
-        padding: 20px 0;
-        margin: 30px 0;
-    }
+            .x-posts {
+                padding: 20px 0;
+                margin: 30px 0;
+            }
 
-    .x-posts-grid {
-        gap: 20px;
-    }
+            .x-posts-grid {
+                gap: 20px;
+            }
 
-    .x-post {
-        max-width: 100%;
-        padding: 15px;
-    }
+            .x-post {
+                max-width: 100%;
+                padding: 15px;
+            }
 
-    /* CTO Section */
-    .cto-section {
-        padding: 20px;
-        margin: 30px 0;
-    }
+            .cto-section {
+                padding: 20px;
+                margin: 30px 0;
+            }
 
-    .cto-content {
-        gap: 20px;
-    }
+            .cto-content {
+                gap: 20px;
+            }
 
-    .cto-item {
-        max-width: 100%;
-        padding: 15px;
-    }
+            .cto-item {
+                max-width: 100%;
+                padding: 15px;
+            }
 
-    .cto-item h3 {
-        font-size: 1.5rem;
-    }
+            .cto-item h3 {
+                font-size: 1.5rem;
+            }
 
-    .cto-item p {
-        font-size: 1rem;
-    }
+            .cto-item p {
+                font-size: 1rem;
+            }
 
-    /* DEXScreener Section */
-    .dex-section {
-        padding: 20px;
-        margin: 30px 0;
-    }
+            .dex-section {
+                padding: 20px;
+                margin: 30px 0;
+            }
 
-    #dexscreener-embed {
-        padding-bottom: 100%;
-    }
+            #dexscreener-embed {
+                padding-bottom: 100%;
+            }
 
-    /* Roadmap Section */
-    .roadmap {
-        padding: 20px;
-        margin: 30px 0;
-    }
+            .game-section {
+                padding: 20px;
+                margin: 30px 0;
+            }
 
-    .roadmap-timeline::before {
-        left: 15px;
-    }
+            .game-embed {
+                padding-bottom: 100%;
+            }
 
-    .roadmap-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+            .beta-note {
+                font-size: 1rem;
+            }
 
-    .roadmap-item:nth-child(even) {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+            .roadmap {
+                padding: 20px;
+                margin: 30px 0;
+            }
 
-    .roadmap-content {
-        width: 100%;
-        margin-left: 30px;
-        padding: 15px;
-    }
+            .roadmap-timeline::before {
+                left: 15px;
+            }
 
-    .roadmap-dot {
-        left: 15px;
-        width: 20px;
-        height: 20px;
-    }
+            .roadmap-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    /* Tokenomics Section */
-    .tokenomics {
-        padding: 20px;
-        margin: 30px 0;
-    }
+            .roadmap-item:nth-child(even) {
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    .tokenomics-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
+            .roadmap-content {
+                width: 100%;
+                margin-left: 30px;
+                padding: 15px;
+            }
 
-    .tokenomics-item {
-        padding: 15px;
-    }
+            .roadmap-dot {
+                left: 15px;
+                width: 20px;
+                height: 20px;
+            }
 
-    .tokenomics-item h3 {
-        font-size: 1.3rem;
-    }
+            .tokenomics {
+                padding: 20px;
+                margin: 30px 0;
+            }
 
-    .tokenomics-item p {
-        font-size: 1rem;
-    }
+            .tokenomics-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
 
-    /* FAQ Section */
-    .faq {
-        padding: 20px;
-        margin: 30px 0;
-    }
+            .tokenomics-item {
+                padding: 15px;
+            }
 
-    .faq-question {
-        font-size: 1.3rem;
-        padding: 10px;
-    }
+            .tokenomics-item h3 {
+                font-size: 1.3rem;
+            }
 
-    .faq-answer {
-        font-size: 1rem;
-        padding: 10px;
-    }
+            .tokenomics-item p {
+                font-size: 1rem;
+            }
 
-    /* Footer */
-    footer {
-        padding: 30px 15px;
-    }
+            .faq {
+                padding: 20px;
+                margin: 30px 0;
+            }
 
-    footer h3 {
-        font-size: 1.5rem;
-    }
+            .faq-question {
+                font-size: 1.3rem;
+                padding: 10px;
+            }
 
-    footer p {
-        font-size: 1rem;
-    }
+            .faq-answer {
+                font-size: 1rem;
+                padding: 10px;
+            }
 
-    .footer-links {
-        gap: 15px;
-    }
+            footer {
+                padding: 30px 15px;
+            }
 
-    .footer-link {
-        font-size: 1rem;
-        padding: 8px 15px;
-    }
+            footer h3 {
+                font-size: 1.5rem;
+            }
 
-    /* Fur Animation */
-    .fur-particle {
-        width: 10px;
-        height: 10px;
-    }
-}
+            footer p {
+                font-size: 1rem;
+            }
 
-/* Additional adjustments for very small screens (below 480px) */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.8rem;
-    }
+            .footer-links {
+                gap: 15px;
+            }
 
-    h1::after {
-        font-size: 1.2rem;
-        right: -30px;
-    }
+            .footer-link {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
 
-    .logo {
-        width: 120px;
-    }
+            .fur-particle {
+                width: 10px;
+                height: 10px;
+            }
+        }
 
-    .info-box p {
-        font-size: 1rem;
-    }
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
 
-    .ca {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-        /* Reinforce truncation */
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-    }
+            h1::after {
+                font-size: 1.2rem;
+                right: -30px;
+            }
 
-    .social-link {
-        padding: 6px 15px;
-        font-size: 1rem;
-    }
+            .logo {
+                width: 120px;
+            }
 
-    .x-posts h2,
-    .cto-section h2,
-    .dex-section h2,
-    .roadmap h2,
-    .tokenomics h2,
-    .faq h2 {
-        font-size: 1.5rem;
-    }
+            .info-box p {
+                font-size: 1rem;
+            }
 
-    .container {
-        padding: 15px;
-    }
-}
+            .ca {
+                font-size: 0.9rem;
+                padding: 8px 15px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 100%;
+            }
+
+            .social-link {
+                padding: 6px 15px;
+                font-size: 1rem;
+            }
+
+            .x-posts h2,
+            .cto-section h2,
+            .dex-section h2,
+            .game-section h2,
+            .roadmap h2,
+            .tokenomics h2,
+            .faq h2 {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+        }
     </style>
 </head>
 
@@ -982,7 +1059,7 @@
 
     <header>
         <div class="header-overlay"></div>
-        <img src="./assets/fur.png  " alt="FURBTC Logo" class="logo">
+        <img src="./assets/fur.png" alt="FURBTC Logo" class="logo">
         <h1>FURBTC</h1>
         <p>The Fluffiest Memecoin!</p>
     </header>
@@ -995,8 +1072,7 @@
         </div>
 
         <div class="social-links">
-            <a href="https://x.com/furbtc" class="social-link x-link" target="_blank">Follow us on X (Golden Check
-                Verified ⭐)</a>
+            <a href="https://x.com/furbtc" class="social-link x-link" target="_blank">Follow us on X (Golden Check Verified ⭐)</a>
             <a href="https://t.me/furbtc" class="social-link" target="_blank">Join us on Telegram</a>
         </div>
 
@@ -1008,145 +1084,76 @@
             <div class="x-posts-grid" id="xPostsGrid">
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">We are building a <a
-                                href="https://twitter.com/hashtag/cto?src=hash&ref_src=twsrc%5Etfw">#cto</a>
+                        <p lang="en" dir="ltr">We are building a <a href="https://twitter.com/hashtag/cto?src=hash&ref_src=twsrc%5Etfw">#cto</a>
                             here<br>Join <a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>
-                            💯<br><br>If this goes to 2million i will <a
-                                href="https://twitter.com/hashtag/GIVEAWAY?src=hash&ref_src=twsrc%5Etfw">#GIVEAWAY</a>
-                            pillows like the logo to 10 people that have liked and reposted this post. <a
-                                href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> is backing
-                            it so dont sleep on it . <a
-                                href="https://twitter.com/hashtag/FURBTC?src=hash&ref_src=twsrc%5Etfw">#FURBTC</a>
-                            <a href="https://twitter.com/hashtag/BTC?src=hash&ref_src=twsrc%5Etfw">#BTC</a> <a
-                                href="https://twitter.com/hashtag/SOLANA?src=hash&ref_src=twsrc%5Etfw">#SOLANA</a>
-                            <a href="https://twitter.com/hashtag/CTO?src=hash&ref_src=twsrc%5Etfw">#CTO</a>… <a
-                                href="https://t.co/uBxi4ab7UH">pic.twitter.com/uBxi4ab7UH</a>
-                        </p>— klementt
-                        (@klmntcn) <a
-                            href="https://twitter.com/klmntcn/status/1914090920980381981?ref_src=twsrc%5Etfw">April 20,
-                            2025</a>
+                            💯<br><br>If this goes to 2million i will <a href="https://twitter.com/hashtag/GIVEAWAY?src=hash&ref_src=twsrc%5Etfw">#GIVEAWAY</a>
+                            pillows like the logo to 10 people that have liked and reposted this post. <a href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> is backing
+                            it so dont sleep on it . <a href="https://twitter.com/hashtag/FURBTC?src=hash&ref_src=twsrc%5Etfw">#FURBTC</a>
+                            <a href="https://twitter.com/hashtag/BTC?src=hash&ref_src=twsrc%5Etfw">#BTC</a> <a href="https://twitter.com/hashtag/SOLANA?src=hash&ref_src=twsrc%5Etfw">#SOLANA</a>
+                            <a href="https://twitter.com/hashtag/CTO?src=hash&ref_src=twsrc%5Etfw">#CTO</a>… <a href="https://t.co/uBxi4ab7UH">pic.twitter.com/uBxi4ab7UH</a>
+                        </p>— klementt (@klmntcn) <a href="https://twitter.com/klmntcn/status/1914090920980381981?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
                         <p lang="tl" dir="ltr"><a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> is
-                            here to stay<br><br>Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump<a
-                                href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> <a
-                                href="https://twitter.com/FurlogoX?ref_src=twsrc%5Etfw">@FurlogoX</a> <a
-                                href="https://t.co/XHx9ZCvfGX">pic.twitter.com/XHx9ZCvfGX</a></p>— Syntx $SHY
-                        (@AgrabioJoh51527) <a
-                            href="https://twitter.com/AgrabioJoh51527/status/1913949609388351500?ref_src=twsrc%5Etfw">April
-                            20, 2025</a>
+                            here to stay<br><br>Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump<a href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> <a href="https://twitter.com/FurlogoX?ref_src=twsrc%5Etfw">@FurlogoX</a> <a href="https://t.co/XHx9ZCvfGX">pic.twitter.com/XHx9ZCvfGX</a></p>— Syntx $SHY (@AgrabioJoh51527) <a href="https://twitter.com/AgrabioJoh51527/status/1913949609388351500?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">This goal still stands 🚀<a
-                                href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> is strong 🔥 HOLD <a
-                                href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
-                            🔥<br><br>CA : Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump <a
-                                href="https://t.co/PwYFf2AewD">pic.twitter.com/PwYFf2AewD</a></p>— LFG Brothers
-                        🔥🚀 (@LFGBrothers) <a
-                            href="https://twitter.com/LFGBrothers/status/1913940940953108700?ref_src=twsrc%5Etfw">April
-                            20, 2025</a>
+                        <p lang="en" dir="ltr">This goal still stands 🚀<a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> is strong 🔥 HOLD <a href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
+                            🔥<br><br>CA : Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump <a href="https://t.co/PwYFf2AewD">pic.twitter.com/PwYFf2AewD</a></p>— LFG Brothers 🔥🚀 (@LFGBrothers) <a href="https://twitter.com/LFGBrothers/status/1913940940953108700?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">FURBTC<br>It’s Bitcoin, but fluffier.<br>Same power. Same
-                            purpose.<br>Wrapped in fur and ready to pounce.<br>Don’t fade the fluff. <br>FURBTC is the
-                            future of cozy capital.<a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>
-                            <a
-                                href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
+                        <p lang="en" dir="ltr">FURBTC<br>It’s Bitcoin, but fluffier.<br>Same power. Same purpose.<br>Wrapped in fur and ready to pounce.<br>Don’t fade the fluff. <br>FURBTC is the future of cozy capital.<a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>
+                            <a href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
                             <a href="https://twitter.com/search?q=%24SOL&src=ctag&ref_src=twsrc%5Etfw">$SOL</a>
                             <a href="https://t.co/URqhrJ37Lp">pic.twitter.com/URqhrJ37Lp</a>
-                        </p>— Memes Are ___
-                        (@MemesAre___) <a
-                            href="https://twitter.com/MemesAre___/status/1913578332144165280?ref_src=twsrc%5Etfw">April
-                            19, 2025</a>
+                        </p>— Memes Are ___ (@MemesAre___) <a href="https://twitter.com/MemesAre___/status/1913578332144165280?ref_src=twsrc%5Etfw">April 19, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">if you see this you're still early, I'm still aping!<br>this is a
-                            milly token <a
-                                href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>!
-                            <a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> <a
-                                href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> <a
-                                href="https://t.co/36mphcwS1L">pic.twitter.com/36mphcwS1L</a></p>— Syntx $SHY
-                        (@AgrabioJoh51527) <a
-                            href="https://twitter.com/AgrabioJoh51527/status/1914131172457955453?ref_src=twsrc%5Etfw">April
-                            21, 2025</a>
+                        <p lang="en" dir="ltr">if you see this you're still early, I'm still aping!<br>this is a milly token <a href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>!
+                            <a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> <a href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> <a href="https://t.co/36mphcwS1L">pic.twitter.com/36mphcwS1L</a></p>— Syntx $SHY (@AgrabioJoh51527) <a href="https://twitter.com/AgrabioJoh51527/status/1914131172457955453?ref_src=twsrc%5Etfw">April 21, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">Happy Easter & 4/20 to the new member <a
-                                href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>, y’all’s community is
-                            another level!<a
-                                href="https://twitter.com/hashtag/HappyEaster?src=hash&ref_src=twsrc%5Etfw">#HappyEaster</a>
-                            <a
-                                href="https://twitter.com/hashtag/Happy420?src=hash&ref_src=twsrc%5Etfw">#Happy420</a>
+                        <p lang="en" dir="ltr">Happy Easter & 4/20 to the new member <a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>, y’all’s community is another level!<a href="https://twitter.com/hashtag/HappyEaster?src=hash&ref_src=twsrc%5Etfw">#HappyEaster</a>
+                            <a href="https://twitter.com/hashtag/Happy420?src=hash&ref_src=twsrc%5Etfw">#Happy420</a>
                             <a href="https://twitter.com/search?q=%24SOL&src=ctag&ref_src=twsrc%5Etfw">$SOL</a>
-                            <a
-                                href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
-                            <a href="https://t.co/Ikfr8gRIQJ">pic.twitter.com/Ikfr8gRIQJ</a></p>— Memes Are ___
-                        (@MemesAre___) <a
-                            href="https://twitter.com/MemesAre___/status/1914076618492146156?ref_src=twsrc%5Etfw">April
-                            20, 2025</a>
+                            <a href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
+                            <a href="https://t.co/Ikfr8gRIQJ">pic.twitter.com/Ikfr8gRIQJ</a></p>— Memes Are ___ (@MemesAre___) <a href="https://twitter.com/MemesAre___/status/1914076618492146156?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">Happy Easter & 4/20 to the new member <a
-                                href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>, y’all’s community is
-                            another level!<a
-                                href="https://twitter.com/hashtag/HappyEaster?src=hash&ref_src=twsrc%5Etfw">#HappyEaster</a>
-                            <a
-                                href="https://twitter.com/hashtag/Happy420?src=hash&ref_src=twsrc%5Etfw">#Happy420</a>
+                        <p lang="en" dir="ltr">Happy Easter & 4/20 to the new member <a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a>, y’all’s community is another level!<a href="https://twitter.com/hashtag/HappyEaster?src=hash&ref_src=twsrc%5Etfw">#HappyEaster</a>
+                            <a href="https://twitter.com/hashtag/Happy420?src=hash&ref_src=twsrc%5Etfw">#Happy420</a>
                             <a href="https://twitter.com/search?q=%24SOL&src=ctag&ref_src=twsrc%5Etfw">$SOL</a>
-                            <a
-                                href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
-                            <a href="https://t.co/Ikfr8gRIQJ">pic.twitter.com/Ikfr8gRIQJ</a></p>— Memes Are ___
-                        (@MemesAre___) <a
-                            href="https://twitter.com/MemesAre___/status/1914076618492146156?ref_src=twsrc%5Etfw">April
-                            20, 2025</a>
+                            <a href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
+                            <a href="https://t.co/Ikfr8gRIQJ">pic.twitter.com/Ikfr8gRIQJ</a></p>— Memes Are ___ (@MemesAre___) <a href="https://twitter.com/MemesAre___/status/1914076618492146156?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr"><a
-                                href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
-                            strategic reserve<br><br>CA: Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump<br><br>Tag 3 of
-                            your friends, got some easter eggs👀 <a
-                                href="https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw">@realDonaldTrump</a> <a
-                                href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> <a
-                                href="https://twitter.com/BitcoinConfVN?ref_src=twsrc%5Etfw">@BitcoinConfVN</a> <a
-                                href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> <a
-                                href="https://twitter.com/FurlogoX?ref_src=twsrc%5Etfw">@FurlogoX</a> <a
-                                href="https://t.co/RE0Q0In8Cu">pic.twitter.com/RE0Q0In8Cu</a></p>— Syntx $SHY
-                        (@AgrabioJoh51527) <a
-                            href="https://twitter.com/AgrabioJoh51527/status/1913952583708004646?ref_src=twsrc%5Etfw">April
-                            20, 2025</a>
+                        <p lang="en" dir="ltr"><a href="https://twitter.com/search?q=%24FURBTC&src=ctag&ref_src=twsrc%5Etfw">$FURBTC</a>
+                            strategic reserve<br><br>CA: Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump<br><br>Tag 3 of your friends, got some easter eggs👀 <a href="https://twitter.com/realDonaldTrump?ref_src=twsrc%5Etfw">@realDonaldTrump</a> <a href="https://twitter.com/LFGBrothers?ref_src=twsrc%5Etfw">@LFGBrothers</a> <a href="https://twitter.com/BitcoinConfVN?ref_src=twsrc%5Etfw">@BitcoinConfVN</a> <a href="https://twitter.com/furbtc?ref_src=twsrc%5Etfw">@furbtc</a> <a href="https://twitter.com/FurlogoX?ref_src=twsrc%5Etfw">@FurlogoX</a> <a href="https://t.co/RE0Q0In8Cu">pic.twitter.com/RE0Q0In8Cu</a></p>— Syntx $SHY (@AgrabioJoh51527) <a href="https://twitter.com/AgrabioJoh51527/status/1913952583708004646?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr"><a
-                                href="https://twitter.com/search?q=%24Furbtc&src=ctag&ref_src=twsrc%5Etfw">$Furbtc</a>
-                            so hot <a href="https://t.co/VdUH2Cy3Qr">pic.twitter.com/VdUH2Cy3Qr</a></p>— ₿itcoin
-                        (₿TC) 🅱️ (@BitcoinConfVN) <a
-                            href="https://twitter.com/BitcoinConfVN/status/1913659199122555038?ref_src=twsrc%5Etfw">April
-                            19, 2025</a>
+                        <p lang="en" dir="ltr"><a href="https://twitter.com/search?q=%24Furbtc&src=ctag&ref_src=twsrc%5Etfw">$Furbtc</a>
+                            so hot <a href="https://t.co/VdUH2Cy3Qr">pic.twitter.com/VdUH2Cy3Qr</a></p>— ₿itcoin (₿TC) 🅱️ (@BitcoinConfVN) <a href="https://twitter.com/BitcoinConfVN/status/1913659199122555038?ref_src=twsrc%5Etfw">April 19, 2025</a>
                     </blockquote>
                 </div>
                 <div class="x-post">
                     <blockquote class="twitter-tweet">
-                        <p lang="en" dir="ltr">Fluffy Orange. <a
-                                href="https://t.co/FjvZ39HtWW">pic.twitter.com/FjvZ39HtWW</a></p>— TickerMoon
-                        (@TickerMoon__) <a
-                            href="https://twitter.com/TickerMoon__/status/1913934951268942124?ref_src=twsrc%5Etfw">April
-                            20, 2025</a>
+                        <p lang="en" dir="ltr">Fluffy Orange. <a href="https://t.co/FjvZ39HtWW">pic.twitter.com/FjvZ39HtWW</a></p>— TickerMoon (@TickerMoon__) <a href="https://twitter.com/TickerMoon__/status/1913934951268942124?ref_src=twsrc%5Etfw">April 20, 2025</a>
                     </blockquote>
                 </div>
             </div>
@@ -1157,23 +1164,19 @@
             <div class="cto-content">
                 <div class="cto-item">
                     <h3>Our Story</h3>
-                    <p>FURBTC was taken over by its passionate community after the original developers stepped away.
-                        We're a fluffy bunch dedicated to making this the most fun memecoin on Solana!</p>
+                    <p>FURBTC was taken over by its passionate community after the original developers stepped away. We're a fluffy bunch dedicated to making this the most fun memecoin on Solana!</p>
                 </div>
                 <div class="cto-item">
                     <h3>Community Driven</h3>
-                    <p>Our community leads the way! From social media to marketing, we're organizing through platforms
-                        like X and Telegram to keep FURBTC thriving and growing.</p>
+                    <p>Our community leads the way! From social media to marketing, we're organizing through platforms like X and Telegram to keep FURBTC thriving and growing.</p>
                 </div>
                 <div class="cto-item">
                     <h3>Challenges We Face</h3>
-                    <p>Without a central leader, we face challenges in organization and funding, but our furry spirit
-                        keeps us going! We're volunteers working together to make FURBTC a success.</p>
+                    <p>Without a central leader, we face challenges in organization and funding, but our furry spirit keeps us going! We're volunteers working together to make FURBTC a success.</p>
                 </div>
                 <div class="cto-item">
                     <h3>Join the Movement</h3>
-                    <p>Be part of the CTO! Join our community on X and Telegram, contribute ideas, and help us make
-                        FURBTC the fluffiest memecoin ever!</p>
+                    <p>Be part of the CTO! Join our community on X and Telegram, contribute ideas, and help us make FURBTC the fluffiest memecoin ever!</p>
                 </div>
             </div>
         </div>
@@ -1181,9 +1184,21 @@
         <div class="dex-section">
             <h2>Trade $FURBTC</h2>
             <div id="dexscreener-embed">
-                <iframe
-                    src="https://dexscreener.com/solana/6FSewzMBx16gZiC8GRzkxZov5Ysg7h7zN7W5dwVsjkpn?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
+                <iframe src="https://dexscreener.com/solana/6FSewzMBx16gZiC8GRzkxZov5Ysg7h7zN7W5dwVsjkpn?embed=1&loadChartSettings=0&chartLeftToolbar=0&chartTheme=dark&theme=dark&chartStyle=0&chartType=usd&interval=15"></iframe>
             </div>
+        </div>
+
+        <div class="game-section">
+            <h2>Play $FURBTC NEBULA FEAST</h2>
+            <div class="game-embed" onclick="openFullscreen()">
+                <iframe src="https://furbtc-games.onrender.com/" allow="fullscreen"></iframe>
+            </div>
+            <p class="beta-note">Beta Test (Not yet optimized with mobile application)</p>
+        </div>
+
+        <div class="fullscreen-overlay" id="fullscreenOverlay">
+            <iframe class="fullscreen-iframe" id="fullscreenIframe" src="https://furbtc-games.onrender.com/" allow="fullscreen"></iframe>
+            <span class="close-button" onclick="closeFullscreen()">✖</span>
         </div>
 
         <div class="roadmap">
@@ -1239,14 +1254,6 @@
                     <h3>Public</h3>
                     <p>75% of total supply</p>
                 </div>
-                <!-- <div class="tokenomics-item">
-                    <h3>Development</h3>
-                    <p>5% of total supply</p>
-                </div> -->
-                <!-- <div class="tokenomics-item">
-                    <h3>Future Initiatives</h3>
-                    <p>5% of total supply</p>
-                </div> -->
             </div>
         </div>
 
@@ -1257,8 +1264,7 @@
                     What is FURBTC? <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    FURBTC is a fluffy memecoin on the Solana blockchain, combining the spirit of Bitcoin with a furry
-                    twist! It’s all about community, fun, and a bit of crypto magic.
+                    FURBTC is a fluffy memecoin on the Solana blockchain, combining the spirit of Bitcoin with a furry twist! It’s all about community, fun, and a bit of crypto magic.
                 </div>
             </div>
             <div class="faq-item">
@@ -1266,8 +1272,7 @@
                     How can I buy FURBTC? <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    You can buy FURBTC on decentralized exchanges like the one embedded above. Use the contract address
-                    to swap SOL for $FURBTC.
+                    You can buy FURBTC on decentralized exchanges like the one embedded above. Use the contract address to swap SOL for $FURBTC.
                 </div>
             </div>
             <div class="faq-item">
@@ -1275,8 +1280,7 @@
                     What makes FURBTC unique? <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    FURBTC combines the iconic Bitcoin symbol with a furry, playful aesthetic. We’re a community-driven
-                    CTO project with plans for NFTs, games, and more!
+                    FURBTC combines the iconic Bitcoin symbol with a furry, playful aesthetic. We’re a community-driven CTO project with plans for NFTs, games, and more!
                 </div>
             </div>
             <div class="faq-item">
@@ -1284,8 +1288,7 @@
                     Are there any rewards? <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    Yes! Check out our X posts for giveaways like fluffy FURBTC pillows, and stay tuned for staking
-                    rewards and community events.
+                    Yes! Check out our X posts for giveaways like fluffy FURBTC pillows, and stay tuned for staking rewards and community events.
                 </div>
             </div>
             <div class="faq-item">
@@ -1293,8 +1296,7 @@
                     Where can I join the community? <span class="faq-toggle">▼</span>
                 </div>
                 <div class="faq-answer">
-                    Join us on X (with our shiny golden check badge ⭐) and Telegram using the links above! We’re a
-                    fluffy bunch and can’t wait to welcome you.
+                    Join us on X (with our shiny golden check badge ⭐) and Telegram using the links above! We’re a fluffy bunch and can’t wait to welcome you.
                 </div>
             </div>
         </div>
@@ -1317,7 +1319,7 @@
         function copyCA() {
             const ca = "Hk8sfcgqzvKMUoD69cCWMN3S98Vb4bAN6c1hcC67pump";
             navigator.clipboard.writeText(ca).then(() => {
-                alert("Contract Address copied to clipboard!");
+                memorials("Contract Address copied to clipboard!");
             });
         }
 
@@ -1327,6 +1329,17 @@
             const toggle = element.querySelector('.faq-toggle');
             answer.classList.toggle('active');
             toggle.classList.toggle('active');
+        }
+
+        // Fullscreen functionality for the game
+        function openFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.add('active');
+        }
+
+        function closeFullscreen() {
+            const overlay = document.getElementById('fullscreenOverlay');
+            overlay.classList.remove('active');
         }
 
         // Create fur particles animation
@@ -1357,17 +1370,14 @@
         document.body.appendChild(twitterScript);
 
         twitterScript.onload = () => {
-            // Wait for Twitter widgets to initialize
             if (window.twttr && window.twttr.widgets) {
                 window.twttr.widgets.load().then(() => {
-                    // Wait a little longer to ensure all posts are rendered
                     setTimeout(() => {
                         loadingSpinner.style.display = 'none';
                         xPostsGrid.classList.add('loaded');
                     }, 1000);
                 });
             } else {
-                // Fallback if twttr.widgets is not available
                 setTimeout(() => {
                     loadingSpinner.style.display = 'none';
                     xPostsGrid.classList.add('loaded');
@@ -1376,7 +1386,6 @@
         };
 
         twitterScript.onerror = () => {
-            // Handle script load error
             loadingSpinner.style.display = 'none';
             xPostsGrid.classList.add('loaded');
         };
