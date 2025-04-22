@@ -346,6 +346,85 @@
             padding-bottom: 125%;
             margin: 30px 0;
         }
+/* Replace the existing game-section and related styles */
+.game-section {
+    margin: 50px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #fffaf0, #ffe4e1);
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/fur.png');
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.game-background {
+    width: 100%;
+    max-width: 1000px; /* optional: increase max width */
+    height: 100vh; /* fill the full viewport height */
+    background: url('assets/nebula.jpg') center/cover no-repeat;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.play-button {
+    background: #ff8c00;
+    color: #fff;
+    border: none;
+    padding: 20px 40px;
+    font-size: 2rem;
+    font-family: 'Bangers', cursive;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, background 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.play-button:hover {
+    background: #ff6200;
+    transform: scale(1.05);
+}
+
+.game-embed.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .game-background {
+        height: 300px;
+        max-width: 100%;
+    }
+    .play-button {
+        font-size: 1.5rem;
+        padding: 15px 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-background {
+        height: 200px;
+    }
+    .play-button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+}
 
         @media (min-width: 1400px) {
             #dexscreener-embed {
@@ -382,7 +461,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
+            /* height: 100%; */
             background: url('https://www.transparenttextures.com/patterns/fur.png');
             opacity: 0.2;
             z-index: -1;
@@ -421,30 +500,34 @@
             margin-top: 10px;
         }
 
-        .fullscreen-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
+        /* Replace the existing fullscreen-overlay and fullscreen-iframe styles in the style section */
+.fullscreen-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
 
-        .fullscreen-overlay.active {
-            display: flex;
-        }
+.fullscreen-overlay.active {
+    display: flex;
+}
 
-        .fullscreen-iframe {
-            width: 90%;
-            height: 90%;
-            border: 0;
-            border-radius: 15px;
-        }
-
+.fullscreen-iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 0; /* Remove border-radius for true fullscreen */
+    margin: 0;
+    padding: 0;
+}
         .close-button {
             position: absolute;
             top: 20px;
@@ -902,7 +985,7 @@
                 /* border: 1px solid red; */
                 
                 padding: 20px;
-                height: 700px;
+                /* height: 700px; */
                 /* margin: 30px 0; */
             }
 
@@ -1194,14 +1277,17 @@
             </div>
         </div>
 
-        <div class="game-section">
-            <h2>Play $FURBTC NEBULA FEAST</h2>
-            <div class="game-embed" onclick="openFullscreen()">
-                <iframe src="https://furbtc-games.onrender.com/" allow="fullscreen"></iframe>
-            </div>
-            <p class="beta-note">Beta Test (Not yet optimized with mobile application)</p>
-        </div>
-
+<!-- Replace the existing game-section HTML -->
+<div class="game-section">
+    <h2>Play $FURBTC NEBULA FEAST</h2>
+    <div class="game-background"></div>
+    <button class="play-button" onclick="startGame()">PLAY BETA TEST</button>
+    <div class="game-embed hidden" id="gameEmbed">
+        <iframe id="gameIframe" src="https://furbtc-games.onrender.com/" allow="fullscreen"></iframe>
+    </div>
+    <p class="beta-note">Beta Test (Not yet optimized with mobile application)</p>
+</div>
+        
         <div class="fullscreen-overlay" id="fullscreenOverlay">
             <iframe class="fullscreen-iframe" id="fullscreenIframe" src="https://furbtc-games.onrender.com/" allow="fullscreen"></iframe>
             <span class="close-button" onclick="closeFullscreen()">✖</span>
@@ -1395,6 +1481,27 @@
             loadingSpinner.style.display = 'none';
             xPostsGrid.classList.add('loaded');
         };
+
+        function startGame() {
+    const gameEmbed = document.getElementById('gameEmbed');
+    gameEmbed.classList.remove('hidden');
+    
+    // Automatically open fullscreen
+    const overlay = document.getElementById('fullscreenOverlay');
+    const iframe = document.getElementById('fullscreenIframe');
+    
+    // Reset iframe src to ensure fresh load
+    iframe.src = iframe.src;
+    overlay.classList.add('active');
+}
+
+function closeFullscreen() {
+    const overlay = document.getElementById('fullscreenOverlay');
+    const gameEmbed = document.getElementById('gameEmbed');
+    
+    overlay.classList.remove('active');
+    gameEmbed.classList.add('hidden');
+}
     </script>
 </body>
 
